@@ -1,17 +1,12 @@
 
-## The aim of this function is to chace the result of 'Matrix inversion'
+## The aim of this function is to cache the result of 'Matrix inversion'
 ## operation in order to save its costly computation time in an iterative 
 ## work with the same data set.
 ## 
-## Write a short comment describing this function
 ## The function, makeCacheMatrix creates a list containing a set of functions
 ## to handell setting and retriving of the data togather with functions to
 ## handell the Matrix inversion caching 
 
-
-## This function get try to retrive the "cached" inversed matrix value from 
-## the the environment of where the x variable was defined, if the value is
-## not exist the Matrix inverse is calculated and set.
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(y) {
@@ -26,9 +21,10 @@ makeCacheMatrix <- function(x = matrix()) {
          getinv = getinv)
 }
 
-
-## Write a short comment describing this function
-
+## This function try to retrive the "cached" inversed matrix value from 
+## the environment of the "makeCacheMatrix" function, if the value is
+## not exist ("null" because of the first iteration or because of a new "set")
+## the Matrix inverse is calculated and set in the "cache" environment.
 cacheSolve <- function(x, ...) {
 ## Return a matrix that is the inverse of 'x'
         inv <- x$getinv()
